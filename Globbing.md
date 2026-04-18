@@ -119,15 +119,14 @@ We'll demonstrate this behavior in the code examples that follow, which operate 
 ```shellsession
 $ tree
 .
+├── 0-1.md
 ├── 0-1.txt
 ├── level1
 │   ├── 1-1.txt
 │   └── level2
+│       ├── 2-1.md
 │       ├── 2-1.txt
-│       ├── 2-2.txt
-│       └── level3
-│           ├── 3-1.txt
-│           └── 3-2.txt
+│       └── 2-2.txt
 └── non-text-file.xls
 ```
 
