@@ -121,6 +121,7 @@ $ tree
 .
 ├── 0-1.txt
 ├── level1
+│   ├── 1-1.txt
 │   └── level2
 │       ├── 2-1.txt
 │       ├── 2-2.txt
@@ -133,6 +134,7 @@ $ tree
 By using `ls` with different glob patterns, you can find different files, as the following commands show:
 
 ```shellsession
+
 # List all files and directories in the current directory, non-recursively
 $ ls *
 0-1.txt  non-text-file.xls
