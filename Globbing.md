@@ -14,6 +14,7 @@ This article contains the following topics:
 - [Examples using `**/` syntax](#Examples%20using%20`**/`%20syntax)
 - [See also](#See%20also)
 
+
 ## Basics of Globbing
 
 The following glob patterns in bash perform filename expansions:
@@ -130,16 +131,24 @@ $ tree
 └── non-text-file.xls
 ```
 
-By using `ls` with different glob patterns, you can find different files, as the following commands show:
+By using `ls` with different glob patterns, you can find different files and directories, as the following commands show:
+
+> [!note]
+> When the argument to `ls` matches a directory, `ls` doesn't list that directory name. It lists the directory's contents. When you see a directory name listed as output, this is due to the fact that the parent of that directory was matched.
 
 ```shellsession
 
 # List all files and directories in the current directory, non-recursively
 $ ls *
-0-1.txt  non-text-file.xls
+0-1.md  0-1.txt  non-text-file.xls
 
 level1:
-level2
+1-1.txt  level2
+
+# Because of the trailing /, this doesn't match 0-1.txt in the current directory.
+# It only matches level1 directory.
+$ ls */
+1-1.txt  level2
 
 # List text files in the current directory
 $ ls *.txt
@@ -147,28 +156,26 @@ $ ls *.txt
 
 # List text files in subdirectories to any depth but not the current directory
 $ ls */**/*.txt
-level1/level2/2-1.txt  level1/level2/2-2.txt  level1/level2/level3/3-1.txt  level1/level2/level3/3-2.txt
-
-# List text files in current directory and subdirectories 
-$ ls **/*.txt
-0-1.txt  level1/level2/2-1.txt  level1/level2/2-2.txt  level1/level2/level3/3-1.txt  level1/level2/level3/3-2.txt
+$ ls */**/*.txt
+level1/1-1.txt  level1/level2/2-1.txt  level1/level2/2-2.txt
 
 # List all files and directories in this directory and all subdirectories
 $ ls **/*
-0-1.txt  level1/level2/2-1.txt  level1/level2/2-2.txt  level1/level2/level3/3-1.txt  level1/level2/level3/3-2.txt  non-text-file.xls
+0-1.md  0-1.txt  level1/1-1.txt  level1/level2/2-1.md  level1/level2/2-1.txt  level1/level2/2-2.txt  non-text-file.xls
 
 level1:
-level2
+1-1.txt  level2
 
 level1/level2:
-2-1.txt  2-2.txt  level3
+2-1.md  2-1.txt  2-2.txt
 
-level1/level2/level3:
-3-1.txt  3-2.txt
+# List text files in current directory and subdirectories 
+$ ls **/*.txt
+0-1.txt  level1/1-1.txt  level1/level2/2-1.txt  level1/level2/2-2.txt
 
-# List all text and XLS files, in this and all subdirectories
-$ ls **/*{txt,xls}
-0-1.txt  level1/level2/2-1.txt  level1/level2/2-2.txt  level1/level2/level3/3-1.txt  level1/level2/level3/3-2.txt  non-text-file.xls
+# List all markdown and XLS files, in this and all subdirectories
+$ ls **/*.{md,xls}
+0-1.md  level1/level2/2-1.md  non-text-file.xls
 ```
 
 ## See also
