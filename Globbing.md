@@ -108,11 +108,11 @@ The following are some `shopt` settings that pertain to globbing:
 
 As mentioned previously, to use the `**` syntax, you first need to enable it by running `shopt -s globstar`. This globbing pattern behaves according to the following rules:
 
-- When preceded by a `/`, as in `/**/`,the pattern matches 0, 1, or multiple directories.
-- When not preceded by a `/`, as in `**/`, the pattern matches 0, 1, or multiple characters or directories.
+- `**` without a trailing `/` matches all files and zero or more directories.
+-  `**/` (that is, with a trailing `/`) only matches zero or more directories. It does not match any files.
 
 > [!IMPORTANT]
-> The `*` itself can match 0, 1, or multiple characters, which means that if it's used by itself in a directory that contains subdirectories, it matches all files and subdirectories to a depth of 1.
+> The `*` itself can match 0, 1, or multiple characters, which means that if it's the last glob character  in a directory that contains subdirectories, depending on what preceded it in the pattern, it can match all files and subdirectories to a depth of 1.
 
 We'll demonstrate this behavior in the code examples that follow, which operate on a directory tree with the following structure:
 
