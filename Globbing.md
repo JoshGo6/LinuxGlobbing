@@ -14,6 +14,8 @@ This article contains the following topics:
 - [Examples using `**/` syntax](#Examples%20using%20`**/`%20syntax)
 - [See also](#See%20also)
 
+> [!IMPORTANT]
+> Unfortunately, the links in this tutorial usually do **not** work on GitHub because I maintain the source material in a local repo that is optimized for [Obsidian](https://obsidian.md), which uses a different syntax for linking. A future version may have this functionality improved through a Git hook to automatically convert Obsidian-style links to Github Flavored Markdown-style links.
 
 ## Basics of Globbing
 
